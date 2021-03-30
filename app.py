@@ -13,9 +13,9 @@ def hankei():
 
 @app.route("/kekka",methods=['POST'])
 def kekka():
-    hankei=repuest.form.get("hankei")
-    ensyu=(haneki+hankei) * 3.14
-    menseki=(hankei*hankei) * 3.14
+    hankei=request.form.get("hankei")
+    ensyu=(int(hankei)+int(hankei)) * 3.14
+    menseki=(int(hankei)*int(hankei)) * 3.14
 
     return render_template("kekka.html",ensyu=ensyu,menseki=menseki)
 
@@ -27,7 +27,7 @@ def kyuuryou():
 def result():
     kyuuryou=request.form.get("kyuuryou")
     time=request.form.get("time")
-    kyuuryou2=kyuuryou*time
+    kyuuryou2=int(kyuuryou)*int(time)
     return render_template("result.html",kyuuryou=kyuuryou2)
 
 
