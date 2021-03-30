@@ -11,13 +11,24 @@ def top():
 def hankei():
     return render_template("hankei.html")
 
-@app.route("/kekka" methods=['POST'])
+@app.route("/kekka",methods=['POST'])
 def kekka():
     hankei=repuest.form.get("hankei")
     ensyu=(haneki+hankei) * 3.14
     menseki=(hankei*hankei) * 3.14
 
     return render_template("kekka.html",ensyu=ensyu,menseki=menseki)
+
+@app.route("/kyuuryou")
+def kyuuryou():
+    return render_template("kyuuryou.html")
+
+@app.route("/result",methods=['POST'])
+def result():
+    kyuuryou=request.form.get("kyuuryou")
+    time=request.form.get("time")
+    kyuuryou2=kyuuryou*time
+    return render_template("result.html",kyuuryou=kyuuryou2)
 
 
 if __name__ == "__main__":
